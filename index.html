@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Dia a Mesma Noite | Memorial Boate Kiss</title>
+    <!-- Carregamento do Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuração de Fonte Padrão (Inter) e estilo para temas escuros */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0e12; /* Fundo muito escuro */
+            color: #e0e0e0; /* Texto claro */
+        }
+        .section-title {
+            color: #ef4444; /* Vermelho sóbrio para títulos importantes (como um sinal de alerta e memória) */
+            border-left: 4px solid #ef4444;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #1a1a2e; /* Cartões com fundo ligeiramente mais claro */
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.1), 0 4px 6px -2px rgba(239, 68, 68, 0.05);
+        }
+        /* Estilo para a contagem de vítimas */
+        #victim-count {
+            animation: fadeIn 2s ease-in-out;
+            font-size: 4rem; /* Tamanho grande em desktop */
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @media (max-width: 640px) {
+             #victim-count {
+                font-size: 3rem; /* Menor em mobile */
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navbar simples (fixa no topo) -->
+    <header class="bg-gray-900 border-b border-gray-700 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-gray-100">Todo Dia a Mesma Noite</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#tragedia" class="text-gray-400 hover:text-red-500 transition duration-300">A Tragédia</a>
+                <a href="#vitimas" class="text-gray-400 hover:text-red-500 transition duration-300">242 Vidas</a>
+                <a href="#testemunhos" class="text-gray-400 hover:text-red-500 transition duration-300">Memória & Justiça</a>
+                <a href="#midia" class="text-gray-400 hover:text-red-500 transition duration-300">Notícias & Artigos</a>
+            </nav>
+            <!-- Botão de menu para mobile -->
+            <button id="menu-button" class="md:hidden text-gray-400 hover:text-red-500 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Menu Mobile (oculto por padrão) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
+            <a href="#tragedia" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">A Tragédia</a>
+            <a href="#vitimas" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">242 Vidas</a>
+            <a href="#testemunhos" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">Memória & Justiça</a>
+            <a href="#midia" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">Notícias & Artigos</a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Seção Principal / Introdução -->
+        <section class="text-center mb-20">
+            <h2 class="text-5xl font-extrabold mb-4 leading-tight text-red-600 sm:text-6xl">
+                242 Razões Para Não Esquecer
+            </h2>
+            <p class="text-gray-400 text-xl max-w-3xl mx-auto">
+                Um memorial virtual para as vidas perdidas e a luta contínua por justiça após a tragédia da Boate Kiss, em Santa Maria (RS), no dia 27 de janeiro de 2013.
+            </p>
+        </section>
+
+        <!-- Seção 1: A Tragédia (Boate Kiss) -->
+        <section id="tragedia" class="mb-20">
+            <h3 class="section-title text-3xl font-bold pl-4 mb-8">A Tragédia da Boate Kiss</h3>
+            <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                    Na madrugada de 27 de janeiro de 2013, um incêndio de proporções devastadoras consumiu a Boate Kiss, em Santa Maria, Rio Grande do Sul. O fogo teve início com o acionamento de um artefato pirotécnico pela banda que se apresentava, atingindo o revestimento de espuma tóxica no teto. A fumaça preta e venenosa, rica em cianeto, causou a maioria das mortes por asfixia em questão de minutos.
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    A imprudência, a falta de segurança e as irregularidades estruturais do local transformaram a festa em uma das maiores tragédias da história do Brasil. O legado do incêndio é uma ferida aberta que expôs a negligência e desencadeou uma batalha de anos por responsabilização, retratada na obra "Todo Dia a Mesma Noite".
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção 2: As Vítimas (242 Vidas) -->
+        <section id="vitimas" class="mb-20 text-center">
+            <h3 class="section-title text-3xl font-bold pl-4 mb-10 text-left">242 Vidas Interrompidas</h3>
+            <div class="bg-gray-800 p-10 rounded-xl shadow-xl">
+                <p class="text-gray-400 text-lg mb-4">A maior parte das vítimas eram jovens universitários e estudantes. Eles tinham sonhos, futuros e histórias que foram tragicamente interrompidas.</p>
+
+                <!-- Destaque para o número de vítimas -->
+                <div class="my-8">
+                    <p class="text-red-600 font-extrabold tracking-widest uppercase">Número Oficial de Vítimas Fatais</p>
+                    <span id="victim-count" class="font-black text-white block">242</span>
+                    <p class="text-gray-400 text-lg">Jovens, filhos, irmãos. Presentes em nossa memória.</p>
+                </div>
+
+                <!-- Simulação de Nomes (Bloco de Homenagem) -->
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 mt-8 max-w-5xl mx-auto">
+                    <!-- Simula a homenagem a algumas vidas -->
+                    <div class="text-sm p-2 bg-red-800/20 text-red-300 rounded-lg">Ana Luiza S.</div>
+                    <div class="text-sm p-2 bg-red-800/20 text-red-300 rounded-lg">Gabriel P.</div>
+                    <div class="text-sm p-2 bg-red-800/20 text-red-300 rounded-lg">Juliana M.</div>
+                    <div class="text-sm p-2 bg-red-800/20 text-red-300 rounded-lg">Pedro H. O.</div>
+                    <div class="text-sm p-2 bg-red-800/20 text-red-300 rounded-lg">Maria Eduarda F.</div>
+                    <div class="text-sm p-2 bg-red-800/20 text-red-300 rounded-lg">Lucas B.</div>
+                    <div class="text-sm p-2 bg-red-800/20 text-red-300 rounded-lg text-gray-400 italic">...e mais 236 nomes</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Testemunhos e o Impacto (Artigos e Notícias) -->
+        <section id="testemunhos" class="mb-20">
+            <h3 class="section-title text-3xl font-bold pl-4 mb-8">Testemunhos, Artigos e a Luta por Justiça</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Testemunhos (Simulados) -->
+                <div class="card p-6 rounded-xl shadow-lg border border-gray-700">
+                    <h4 class="text-xl font-semibold mb-3 text-red-500">Memória e Relatos (Simulados)</h4>
+                    <p class="text-gray-400 italic mb-4">"A fumaça veio de repente. Era escura, densa e o cheiro era insuportável. Tentamos achar a saída, mas a correria e a escuridão tornaram tudo impossível. O silêncio que veio depois da confusão é o mais assustador." - (Sobrevivente, 2013)</p>
+                    <p class="text-gray-400 italic">"Nossa vida parou naquele dia. Cada 27 de janeiro é um lembrete doloroso de que a justiça ainda caminha devagar. Lutamos não só pelos nossos filhos, mas para que isso jamais se repita em outro lugar." - (Pai de Vítima)</p>
+                </div>
+
+                <!-- Notícias/Artigos (Contexto do Caso) -->
+                <div class="card p-6 rounded-xl shadow-lg border border-gray-700">
+                    <h4 class="text-xl font-semibold mb-3 text-red-500">O Caso e a Repercussão Jurídica</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-red-400 mr-2 mt-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            </span>
+                            Responsabilização: Discussões complexas sobre negligência, dolo eventual e a punição dos réus.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-400 mr-2 mt-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            </span>
+                            Legislação: Mudanças nas normas de segurança e prevenção de incêndios em todo o país após a tragédia.
+                        </li>
+                        <li class="flex items-start">
+                             <span class="text-red-400 mr-2 mt-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            </span>
+                            "Todo Dia a Mesma Noite": A narrativa que trouxe à tona os detalhes do processo e a dor das famílias.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4: Notícias e Continuidade da Memória -->
+        <section id="midia" class="mb-20">
+            <h3 class="section-title text-3xl font-bold pl-4 mb-8">A Luta Continua: Notícias e Artigos</h3>
+            <div class="space-y-6">
+                <!-- Mockup de Notícia 1 -->
+                <article class="p-4 bg-gray-800 rounded-lg border border-gray-700">
+                    <h4 class="text-xl font-bold text-red-400 mb-1">Associação de Vítimas Segue em Luta por Punição Definitiva</h4>
+                    <p class="text-sm text-gray-500 mb-2">Data da Publicação Simulada: 27 de Janeiro de 2024</p>
+                    <p class="text-gray-300">Dez anos após a tragédia, a Associação das Vítimas da Boate Kiss (AVTSM) reforça o pedido por celeridade e definição nas instâncias superiores do Judiciário. A mobilização em Santa Maria (RS) reuniu centenas de pessoas...</p>
+                    <a href="#" class="text-red-500 hover:text-red-400 text-sm font-semibold mt-2 inline-block">Leia Mais &rarr;</a>
+                </article>
+
+                <!-- Mockup de Notícia 2 -->
+                <article class="p-4 bg-gray-800 rounded-lg border border-gray-700">
+                    <h4 class="text-xl font-bold text-red-400 mb-1">Avanços na Legislação de Segurança Contra Incêndio (Coscip)</h4>
+                    <p class="text-sm text-gray-500 mb-2">Data da Publicação Simulada: 15 de Março de 2023</p>
+                    <p class="text-gray-300">As novas regras estaduais de prevenção e combate a incêndios endureceram as fiscalizações e aumentaram as exigências para o uso de materiais não-inflamáveis em ambientes de grande circulação, um legado direto da tragédia da Kiss.</p>
+                    <a href="#" class="text-red-500 hover:text-red-400 text-sm font-semibold mt-2 inline-block">Leia Mais &rarr;</a>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-700 py-6 text-center">
+        <p class="text-gray-400 text-sm">Em memória dos 242. Que a luta por justiça e segurança permaneça acesa. #LutoEterno</p>
+        <p class="text-xs text-gray-600 mt-2">Este é um memorial simulado para fins de demonstração, baseado na tragédia real de Santa Maria/RS.</p>
+    </footer>
+
+    <!-- JavaScript para funcionalidade do menu mobile -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Toggle do menu mobile
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Fechar menu mobile ao clicar em um link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
